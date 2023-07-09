@@ -7,6 +7,8 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor;
 using System.Globalization;
 
+[RequireComponent(typeof(CalculateHealth))]
+
 public class HealthDisplay : MonoBehaviour
 {
     [SerializeField] private TMP_Text _hpChangeCounter;
@@ -30,29 +32,38 @@ public class HealthDisplay : MonoBehaviour
 
     public void OnIncreaseClick()
     {
+        if (_health.Health < _health.MaxHealth)
+        {
             _health.RiseHealth(_heal);
+            ChangeHealthBar();
             _hpChangeCounter.color = Color.green;
+        }
     }
 
     public void OnDegreaseClick()
     {
+        if( _health.Health > _health.MinHealth) 
+        {
             _health.DropHealth(_damage);
+            ChangeHealthBar();
             _hpChangeCounter.color = Color.red;
+        }
     }
 
-    public void ChangeHealthBar()
+    private void ChangeHealthBar()
     {
+        if (_workingAlphaCoroutine != null && _workingHealthCoroutine != null)
+        {
+            StopCoroutine(_workingHealthCoroutine);
+            StopCoroutine(_workingAlphaCoroutine);
+        }
+
         _workingHealthCoroutine = StartCoroutine(ChangeHealthCoroutine());
         _workingAlphaCoroutine = StartCoroutine(ChangeAlphaCoroutine());
     }
 
     private IEnumerator ChangeHealthCoroutine()
     {
-        if(_workingHealthCoroutine != null)
-        {
-            StopCoroutine(_workingHealthCoroutine);
-        }
-
         _hpCount.text = _health.Health.ToString("P0", _culture);
 
         while (_healthBar.value != _health.Health)
@@ -70,11 +81,6 @@ public class HealthDisplay : MonoBehaviour
 
     private IEnumerator ChangeAlphaCoroutine()
     {
-        if (_workingAlphaCoroutine != null)
-        {
-            StopCoroutine(_workingAlphaCoroutine);
-        }
-
         _hpChangeCounter.alpha = 1f;
 
         while (_hpChangeCounter.alpha != 0)

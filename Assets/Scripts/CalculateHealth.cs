@@ -5,13 +5,13 @@ using UnityEngine.Events;
 
 public class CalculateHealth: MonoBehaviour 
 {
-    [SerializeField] private UnityEvent _changed;
-
     private float _health;
     private int _maxHealth;
     private int _minHealth;
 
     public float Health { get { return _health; } private set { } }
+    public float MinHealth { get { return _minHealth; } private set { } }
+    public float MaxHealth { get { return _maxHealth; } private set { } }
 
     private void Awake()
     {
@@ -21,19 +21,11 @@ public class CalculateHealth: MonoBehaviour
     }
     public void RiseHealth(float heal)
     {
-        if (_health < _maxHealth)
-        {
-            _health += heal;
-            _changed?.Invoke();
-        }
+        _health += heal;
     }
 
     public void DropHealth(float damage)
     {
-        if (_health > _minHealth)
-        {
-            _health -= damage;
-            _changed?.Invoke();
-        }
+        _health -= damage;
     }
 }
