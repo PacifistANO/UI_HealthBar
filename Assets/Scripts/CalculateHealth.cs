@@ -17,6 +17,7 @@ public class CalculateHealth: MonoBehaviour
         _minHealth = 0;
         _maxHealth = 1;
     }
+
     public void RiseHealth(float heal)
     {
         if (_health < _maxHealth)
