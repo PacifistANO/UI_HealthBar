@@ -1,27 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class CalculateHealth
+public class CalculateHealth: MonoBehaviour 
 {
+    [SerializeField] private UnityEvent _changed;
+
     private float _health;
-    private float _impact;
+    private int _maxHealth;
+    private int _minHealth;
 
     public float Health { get { return _health; } private set { } }
 
-    public CalculateHealth() 
+    private void Awake()
     {
         _health = 1;
-        _impact = 0.1f;
+        _minHealth = 0;
+        _maxHealth = 1;
+    }
+    public void RiseHealth(float heal)
+    {
+        if (_health < _maxHealth)
+        {
+            _health += heal;
+            _changed?.Invoke();
+        }
     }
 
-    public void RiseHealth()
+    public void DropHealth(float damage)
     {
-        _health += _impact;
-    }
-
-    public void DropHealth()
-    {
-        _health -= _impact;
+        if (_health > _minHealth)
+        {
+            _health -= damage;
+            _changed?.Invoke();
+        }
     }
 }

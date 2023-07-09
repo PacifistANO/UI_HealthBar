@@ -15,37 +15,35 @@ public class HealthDisplay : MonoBehaviour
 
     private CalculateHealth _health;
     private float _delta = 0.2f;
+    private float _heal = 0.1f;
+    private float _damage = 0.1f;
     private CultureInfo _culture = CultureInfo.CurrentCulture.Clone() as CultureInfo;
     private Coroutine _workingHealthCoroutine = null;
     private Coroutine _workingAlphaCoroutine = null;
 
     private void Start()
     {
-        _health = new CalculateHealth();
+        _health = GetComponent<CalculateHealth>();
         _culture.NumberFormat.PercentSymbol = "";
         _healthBar.value = _health.Health;
     }
 
     public void OnIncreaseClick()
     {
-        if (_health.Health < 1)
-        {
-            _health.RiseHealth();
+            _health.RiseHealth(_heal);
             _hpChangeCounter.color = Color.green;
-            _workingAlphaCoroutine = StartCoroutine(ChangeAlphaCoroutine());
-            _workingHealthCoroutine = StartCoroutine(ChangeHealthCoroutine());
-        }
     }
 
     public void OnDegreaseClick()
     {
-        if (_health.Health > 0)
-        {
-            _health.DropHealth();
+            _health.DropHealth(_damage);
             _hpChangeCounter.color = Color.red;
-            _workingAlphaCoroutine = StartCoroutine(ChangeAlphaCoroutine());
-            _workingHealthCoroutine = StartCoroutine(ChangeHealthCoroutine());
-        }
+    }
+
+    public void ChangeHealthBar()
+    {
+        _workingHealthCoroutine = StartCoroutine(ChangeHealthCoroutine());
+        _workingAlphaCoroutine = StartCoroutine(ChangeAlphaCoroutine());
     }
 
     private IEnumerator ChangeHealthCoroutine()
