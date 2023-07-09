@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor;
 using System.Globalization;
+using Unity.VisualScripting;
 
 [RequireComponent(typeof(CalculateHealth))]
 
@@ -16,7 +17,6 @@ public class HealthDisplay : MonoBehaviour
     [SerializeField] private Slider _healthBar;
 
     private CalculateHealth _health;
-    private float _delta = 0.2f;
     private float _heal = 0.1f;
     private float _damage = 0.1f;
     private CultureInfo _culture = CultureInfo.CurrentCulture.Clone() as CultureInfo;
@@ -32,22 +32,16 @@ public class HealthDisplay : MonoBehaviour
 
     public void OnIncreaseClick()
     {
-        if (_health.Health < _health.MaxHealth)
-        {
-            _health.RiseHealth(_heal);
-            ChangeHealthBar();
-            _hpChangeCounter.color = Color.green;
-        }
+        _health.RiseHealth(_heal);
+        _hpChangeCounter.color = Color.green;
+        ChangeHealthBar();
     }
 
     public void OnDegreaseClick()
     {
-        if( _health.Health > _health.MinHealth) 
-        {
-            _health.DropHealth(_damage);
-            ChangeHealthBar();
-            _hpChangeCounter.color = Color.red;
-        }
+        _health.DropHealth(_damage);
+        _hpChangeCounter.color = Color.red;
+        ChangeHealthBar();
     }
 
     private void ChangeHealthBar()
@@ -62,35 +56,38 @@ public class HealthDisplay : MonoBehaviour
         _workingAlphaCoroutine = StartCoroutine(ChangeAlphaCoroutine());
     }
 
-    private IEnumerator ChangeHealthCoroutine()
+    private void ChangeValue(ref float currentValue, float finalValue, float delta, ref Coroutine workingCoroutine)
     {
-        _hpCount.text = _health.Health.ToString("P0", _culture);
+        currentValue = Mathf.MoveTowards(currentValue, finalValue, delta * Time.deltaTime);
 
-        while (_healthBar.value != _health.Health)
+        if (currentValue == finalValue)
         {
-            _healthBar.value = Mathf.MoveTowards(_healthBar.value, _health.Health, _delta * Time.deltaTime);
-
-            if (_healthBar.value == _health.Health)
-            {
-                StopCoroutine(_workingHealthCoroutine);
-            }
-
-            yield return null;
+            StopCoroutine(workingCoroutine);
         }
     }
 
     private IEnumerator ChangeAlphaCoroutine()
     {
-        _hpChangeCounter.alpha = 1f;
+        float alphaValue = _hpChangeCounter.alpha;
 
         while (_hpChangeCounter.alpha != 0)
         {
-            _hpChangeCounter.alpha = Mathf.MoveTowards(_hpChangeCounter.alpha, 0, Time.deltaTime);
+            ChangeValue(ref alphaValue, 0f, 1f, ref _workingAlphaCoroutine);
+            _hpChangeCounter.alpha = alphaValue;
 
-            if (_hpChangeCounter.alpha == 0)
-            {
-                StopCoroutine(ChangeAlphaCoroutine());
-            }
+            yield return null;
+        }
+    }
+
+    private IEnumerator ChangeHealthCoroutine()
+    {
+        _hpCount.text = _health.Health.ToString("P0", _culture);
+        float healthValue = _healthBar.value;
+
+        while (_healthBar.value != _health.Health)
+        {
+            ChangeValue(ref healthValue, _health.Health, 0.2f, ref _workingHealthCoroutine);
+            _healthBar.value = healthValue;
 
             yield return null;
         }
