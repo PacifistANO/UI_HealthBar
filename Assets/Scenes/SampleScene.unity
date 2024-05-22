@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5622641, g: 0.032887116, b: 0.032887116, a: 1}
+  m_Color: {r: 0.90188676, g: 0.37947306, b: 0.37947306, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9433962, g: 0.38625845, b: 0.38625845, a: 1}
+  m_Color: {r: 0.9245283, g: 0.5145959, b: 0.5145959, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1581,8 +1581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hpChangeCounter: {fileID: 2029848525}
   _hpCount: {fileID: 1617850541}
-  _smoothHealthBar: {fileID: 849087661}
-  _healthBar: {fileID: 1776281847}
+  _smoothHealthBar: {fileID: 1776281847}
+  _healthBar: {fileID: 849087661}
 --- !u!114 &2085086367
 MonoBehaviour:
   m_ObjectHideFlags: 0
