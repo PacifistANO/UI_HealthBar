@@ -15,7 +15,7 @@ public class CharacterHealth : MonoBehaviour
         _maxValue = _value;
     }
 
-    public void IncreaseHealth(float addition)
+    public void Increase(float addition)
     {
         if (addition >= 0)
             if (_value + addition < _maxValue)
@@ -24,7 +24,7 @@ public class CharacterHealth : MonoBehaviour
                 _value = _maxValue;
     }
 
-    public void DecreaseHealth(float reduction)
+    public void Decrease(float reduction)
     {
         if (reduction >= 0)
             if (_value - reduction > 0)
