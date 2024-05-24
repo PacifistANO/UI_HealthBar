@@ -14,11 +14,13 @@ public class SmoothHealthDisplay : HealthDisplay
 
     public override void OnIncreaseClick()
     {
+        StopCoroutine(ChangeHealthBar());
         StartCoroutine(ChangeHealthBar());
     }
 
     public override void OnDegreaseClick()
     {
+        StopCoroutine(ChangeHealthBar());
         StartCoroutine(ChangeHealthBar());
     }
 

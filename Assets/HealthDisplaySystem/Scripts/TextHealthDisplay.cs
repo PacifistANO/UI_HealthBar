@@ -17,6 +17,7 @@ public class TextHealthDisplay : HealthDisplay
         _hpChangeCounter.text = Heal.ToString();
         _hpChangeCounter.color = Color.green;
         _hpCount.text = (Health.Value + "/" + Health.MaxValue);
+        StopCoroutine(ChangeAlphaCoroutine());
         StartCoroutine(ChangeAlphaCoroutine());
     }
 
@@ -25,6 +26,7 @@ public class TextHealthDisplay : HealthDisplay
         _hpChangeCounter.text = Damage.ToString();
         _hpChangeCounter.color = Color.red;
         _hpCount.text = (Health.Value + "/" + Health.MaxValue);
+        StopCoroutine(ChangeAlphaCoroutine());
         StartCoroutine(ChangeAlphaCoroutine());
     }
 
