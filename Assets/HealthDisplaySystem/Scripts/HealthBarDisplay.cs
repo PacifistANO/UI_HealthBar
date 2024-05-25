@@ -5,18 +5,23 @@ public class HealthBarDisplay : HealthDisplay
 {
     [SerializeField] private Slider _healthBar;
 
+    private void OnEnable()
+    {
+        Health.HealthChanged += OnHealthChanged;
+    }
+
     private void Start()
     {
         _healthBar.maxValue = Health.MaxValue;
         _healthBar.value = Health.Value;
     }
 
-    public override void OnIncreaseClick()
+    private void OnDisable()
     {
-        _healthBar.value = Health.Value;
+        Health.HealthChanged -= OnHealthChanged;
     }
 
-    public override void OnDegreaseClick()
+    protected override void OnHealthChanged()
     {
         _healthBar.value = Health.Value;
     }

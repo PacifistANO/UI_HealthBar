@@ -6,22 +6,30 @@ public class SmoothHealthDisplay : HealthDisplay
 {
     [SerializeField] private Slider _smoothHealthBar;
 
+    private Coroutine _changeHealthBar;
+
+    private void OnEnable()
+    {
+        Health.HealthChanged += OnHealthChanged;
+    }
+
     private void Start()
     {
         _smoothHealthBar.maxValue = Health.Value;
         _smoothHealthBar.value = Health.Value;
     }
 
-    public override void OnIncreaseClick()
+    private void OnDisable()
     {
-        StopCoroutine(ChangeHealthBar());
-        StartCoroutine(ChangeHealthBar());
+        Health.HealthChanged -= OnHealthChanged;
     }
-
-    public override void OnDegreaseClick()
+    
+    protected override void OnHealthChanged()
     {
-        StopCoroutine(ChangeHealthBar());
-        StartCoroutine(ChangeHealthBar());
+        if (_changeHealthBar != null)
+            StopCoroutine(_changeHealthBar);
+
+        _changeHealthBar = StartCoroutine(ChangeHealthBar());
     }
 
     private IEnumerator ChangeHealthBar()

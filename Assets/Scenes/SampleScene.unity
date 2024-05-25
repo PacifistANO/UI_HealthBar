@@ -206,44 +206,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 994286884}
-        m_TargetAssemblyTypeName: HealthDisplay, Assembly-CSharp
-        m_MethodName: OnIncreaseClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 994286882}
-        m_TargetAssemblyTypeName: HealthBarDisplay, Assembly-CSharp
-        m_MethodName: OnIncreaseClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 994286881}
-        m_TargetAssemblyTypeName: SmoothHealthDisplay, Assembly-CSharp
-        m_MethodName: OnIncreaseClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 994286880}
-        m_TargetAssemblyTypeName: TextHealthDisplay, Assembly-CSharp
+      - m_Target: {fileID: 2085086366}
+        m_TargetAssemblyTypeName: HealthChanger, Assembly-CSharp
         m_MethodName: OnIncreaseClick
         m_Mode: 1
         m_Arguments:
@@ -471,50 +435,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7905570475844516122, guid: df0f23bced4e7764b8b3c61b1f66adf0, type: 3}
   m_PrefabInstance: {fileID: 6024456437833792991}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &994286880 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9030602223426911322, guid: df0f23bced4e7764b8b3c61b1f66adf0, type: 3}
-  m_PrefabInstance: {fileID: 6024456437833792991}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8003ad3eb36b33444868201b1b0ec97f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &994286881 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8005806829595029461, guid: df0f23bced4e7764b8b3c61b1f66adf0, type: 3}
-  m_PrefabInstance: {fileID: 6024456437833792991}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2789d0d89eb58c429b09d6449d3e74e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &994286882 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2089516762939600092, guid: df0f23bced4e7764b8b3c61b1f66adf0, type: 3}
-  m_PrefabInstance: {fileID: 6024456437833792991}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 092dcfe8e63633d4ea56008c67245296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &994286884 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9090066867659843953, guid: df0f23bced4e7764b8b3c61b1f66adf0, type: 3}
-  m_PrefabInstance: {fileID: 6024456437833792991}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6727b2d6b1f53e49946bda69da6d1e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1070258740
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,44 +518,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 994286884}
-        m_TargetAssemblyTypeName: HealthDisplay, Assembly-CSharp
-        m_MethodName: OnDegreaseClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 994286882}
-        m_TargetAssemblyTypeName: HealthBarDisplay, Assembly-CSharp
-        m_MethodName: OnDegreaseClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 994286881}
-        m_TargetAssemblyTypeName: SmoothHealthDisplay, Assembly-CSharp
-        m_MethodName: OnDegreaseClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 994286880}
-        m_TargetAssemblyTypeName: TextHealthDisplay, Assembly-CSharp
+      - m_Target: {fileID: 2085086366}
+        m_TargetAssemblyTypeName: HealthChanger, Assembly-CSharp
         m_MethodName: OnDegreaseClick
         m_Mode: 1
         m_Arguments:
@@ -812,10 +696,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2085086361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aad354097dbd01145a4a849a590f1197, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f316f3d1cce2504390c30aa1ecad778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value: 200
+  _health: {fileID: 6024456437833792992}
 --- !u!1001 &6024456437833792991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -824,10 +708,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2085086365}
     m_Modifications:
-    - target: {fileID: 2089516762939600092, guid: df0f23bced4e7764b8b3c61b1f66adf0, type: 3}
-      propertyPath: _health
-      value: 
-      objectReference: {fileID: 6024456437833792992}
     - target: {fileID: 6859569317596262196, guid: df0f23bced4e7764b8b3c61b1f66adf0, type: 3}
       propertyPath: m_Name
       value: HPDisplay

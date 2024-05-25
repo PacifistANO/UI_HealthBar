@@ -803,7 +803,6 @@ GameObject:
   - component: {fileID: 2089516762939600092}
   - component: {fileID: 8005806829595029461}
   - component: {fileID: 9030602223426911322}
-  - component: {fileID: 9090066867659843953}
   m_Layer: 5
   m_Name: HPDisplay
   m_TagString: Untagged
@@ -818,7 +817,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6859569317596262196}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -898,6 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092dcfe8e63633d4ea56008c67245296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 1091831683819779040}
   _healthBar: {fileID: 7819476736875569524}
 --- !u!114 &8005806829595029461
 MonoBehaviour:
@@ -911,6 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2789d0d89eb58c429b09d6449d3e74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 1091831683819779040}
   _smoothHealthBar: {fileID: 6194722299230432111}
 --- !u!114 &9030602223426911322
 MonoBehaviour:
@@ -924,20 +925,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8003ad3eb36b33444868201b1b0ec97f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 1091831683819779040}
   _hpCount: {fileID: 115888740600920498}
   _hpChangeCounter: {fileID: 6707857390461616287}
---- !u!114 &9090066867659843953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6859569317596262196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6727b2d6b1f53e49946bda69da6d1e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7060985590849798718
 GameObject:
   m_ObjectHideFlags: 0

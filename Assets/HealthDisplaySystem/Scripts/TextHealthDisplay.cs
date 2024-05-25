@@ -7,31 +7,36 @@ public class TextHealthDisplay : HealthDisplay
     [SerializeField] private TMP_Text _hpCount;
     [SerializeField] private TMP_Text _hpChangeCounter;
 
+    private Coroutine _changeAlpha;
+
+    private void OnEnable()
+    {
+        Health.HealthChanged += OnHealthChanged;
+    }
+
     private void Start()
     {
         _hpCount.text = (Health.Value + "/" + Health.MaxValue);
     }
 
-    public override void OnIncreaseClick()
+    private void OnDisable()
     {
-        _hpChangeCounter.text = Heal.ToString();
-        _hpChangeCounter.color = Color.green;
+        Health.HealthChanged -= OnHealthChanged;
+    }
+    
+    protected override void OnHealthChanged()
+    {
         _hpCount.text = (Health.Value + "/" + Health.MaxValue);
-        StopCoroutine(ChangeAlphaCoroutine());
-        StartCoroutine(ChangeAlphaCoroutine());
+
+        if (_changeAlpha != null)
+            StopCoroutine(_changeAlpha);
+
+        _changeAlpha = StartCoroutine(ChangeAlpha());
     }
 
-    public override void OnDegreaseClick()
+    private IEnumerator ChangeAlpha()
     {
-        _hpChangeCounter.text = Damage.ToString();
-        _hpChangeCounter.color = Color.red;
-        _hpCount.text = (Health.Value + "/" + Health.MaxValue);
-        StopCoroutine(ChangeAlphaCoroutine());
-        StartCoroutine(ChangeAlphaCoroutine());
-    }
-
-    private IEnumerator ChangeAlphaCoroutine()
-    {
+        _hpChangeCounter.text = Health.HealthChangerValue.ToString();
         float alphaValue = _hpChangeCounter.alpha;
 
         while (_hpChangeCounter.alpha != 0)
