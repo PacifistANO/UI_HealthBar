@@ -36,6 +36,7 @@ public class TextHealthDisplay : HealthDisplay
 
     private IEnumerator ChangeAlpha()
     {
+        _hpChangeCounter.color = Color.yellow;
         _hpChangeCounter.text = Health.HealthChangerValue.ToString();
         float alphaValue = _hpChangeCounter.alpha;
 
